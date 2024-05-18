@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Solutions Inc.</title>
+    <link rel="stylesheet" href="styles4.css">
+    <link rel="stylesheet" href="button-styles.css">
+	<link rel="stylesheet" href="scroll-to-top.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Resetting default styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(to bottom right, #000080, #ff1493, #ffa500);
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f1c40f;
+        }
+
+        /* Icons beside dropdown button */
+        .nav-icons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .nav-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+
+        /* Hero section styles */
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+            color: #fff;
+            background-color: rgba(0,0,0,0.6); /* Add background color with transparency */
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f1c40f;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* About section styles */
+        #about {
+            padding: 100px 0;
+            color: #fff; /* Text color */
+        }
+
+        #about h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #fff; /* Header text color */
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .video-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Services section styles */
+        #services {
+            padding: 100px 0;
+        }
+
+        #services h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #fff; /* Header text color */
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .service {
+            background-color: #FF69B4;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .service img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        /* Products section styles */
+        #products {
+            padding: 100px 0;
+        }
+
+        #products h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #fff; /* Header text color */
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .product {
+            background-color: #FF69B4;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .product-details {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .btn-add-to-cart,
+        .btn-save {
+            background-color: #f1c40f;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-add-to-cart:hover,
+        .btn-save:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .cart-message {
+            color: #0f0;
+            margin-top: 10px;
+        }
+
+        /* Contact section styles */
+        #contact {
+            padding: 100px 0;
+            color: #000; /* Text color */
+        }
+
+        #contact h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #fff; /* Header text color */
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background-color: #f1c40f;
+            color: #333;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Map section styles */
+        #map {
+            padding: 100px 0;
+            color: #fff; /* Text color */
+            text-align: center;
+        }
+
+        #map h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #fff; /* Header text color */
+        }
+
+        #map iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 10px;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 50px 0;
+        }
+
+        footer p {
+            text-align: center;
+        }
+
+        .social-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            font-size: 24px;
+            color: #fff;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #f1c40f;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            header {
+                padding: 15px 0;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .btn {
+                padding: 10px 15px;
+            }
+
+            #about,
+            #services,
+            #products,
+            #contact,
+            #map {
+                padding: 60px 0;
+            }
+
+            #about h2,
+            #services h2,
+            #products h2,
+            #contact h2,
+           
+
+            #map h2 {
+                font-size: 28px;
+            }
+
+            .service img,
+            .product img {
+                width: 100px;
+            }
+
+            .btn-add-to-cart,
+            .btn-save {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .contact-form button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            footer {
+                padding: 30px 0;
+            }
+
+            .social-links a {
+                font-size: 20px;
+            }
+
+            .topBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* 20px from the bottom */
+            right: 30px; /* 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: #FFD700; /* Set a background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 10px; /* Rounded corners */
+            }
+
+            .topBtn:hover {
+            background-color: #333; /* Darker background on hover */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Tech Solutions Inc.</div>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#map">Map</a></li>
+                    <li class="nav-icons">
+                        <a href="#"><i class="fas fa-cog"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-bell"></i></a>
+                        <a href="#"><i class="fas fa-calendar-alt"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+	
+    <section class="hero" id="hero">
+        <div class="container">
+		 <center><img src="logo.jpg" alt="logo"></center>
+            <h1>Welcome to Tech Solutions Inc.</h1>
+            <p>Your partner in technology innovation and solutions.</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll to Top Button</title>
+    <link rel="stylesheet" href="styles.css">
+    <div id="content">
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <p>Tech Solutions Inc. is a leading provider of innovative technology solutions that empower businesses to achieve their goals. We specialize in a range of services designed to enhance your operational efficiency and drive growth.</p>
+                <p>With a team of experienced professionals and a commitment to excellence, we deliver customized solutions that meet the unique needs of our clients. Discover how we can help your business thrive in the digital age.</p>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/BU0HuZLGSuU?si=y4_PO2F6hGodSMvV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+				<center><p><button onclick="topFunction()" id="topBtn" title="Go to top">Top</button></p></center>
+
+    <script src="script.js"></script>
+            </div>
+        </div>
+    </section>
+	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll to Top Button</title>
+    <link rel="stylesheet" href="styles.css">
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service">
+                    <img src="https://www.fond.co/wp-content/uploads/2019/10/10-hr-consultants-you-should-hire.jpg" alt="Service 1">
+                    <h3>IT Consulting</h3>
+                    <p>Expert advice to help you navigate complex technology challenges.</p>
+                </div>
+                <div class="service">
+                    <img src="https://newswatchtv.com/wp-content/uploads/2019/02/iStock-950986656.jpg" alt="Service 2">
+                    <h3>Software Development</h3>
+                    <p>Custom software solutions tailored to your business needs.</p>
+                </div>
+                <div class="service">
+                    <img src="https://cdn.seeklearning.com.au/media/images/career-guide/module/support-technician.jpg" alt="Service 3">
+                    <h3>Support</h3>
+                    <p>Reliable and efficient support to keep your systems running smoothly.</p>
+                </div>
+                <div class="service">
+                    <img src="https://www.cio.com/wp-content/uploads/2023/09/shutterstock_2208430283-1.jpg?resize=1024%2C720&quality=50&strip=all" alt="Service 4">
+                    <h3>Training</h3>
+                    <p>Comprehensive training programs to empower your team.</p>
+                </div>
+				<div class="service">
+                    <img src="cybersecurity.jpg"alt="Service 5">
+                    <h3>Cybersecurity</h3>
+                    <p> Evaluating and improving security posture.</p>
+                </div>
+				<div class="service">
+                    <img src="enterprise solutions.jpg"alt="Service 6">
+                    <h3>Enterprise Solutions</h3>
+                    <p>ERP (Enterprise Resource Planning),Implementing and managing ERP systems.</p>
+                </div>
+				<center><p><button onclick="topFunction()" id="topBtn" title="Go to top">Top</button></p></center>
+    <script src="script.js"></script>
+            </div>
+        </div>
+    </section>
+	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll to Top Button</title>
+    <section id="products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="products-grid">
+                <div class="product">
+                    <img src="https://www.apple.com/my/iphone-15/images/overview/closer-look/all_colors__d4w03v51nwcy_large.jpg" alt="Product 1">
+                    <h3>Iphone</h3>
+                    <p>High-quality product designed to meet your needs.</p>
+                    <div class="product-details">
+                        <button class="btn-add-to-cart">Add to Cart</button>
+                        <a href="#" class="btn-save" onclick="saveForLater(this)"><i class="fas fa-heart"></i></a>
+                    </div>
+                    <div class="cart-message"></div>
+                </div>
+                <div class="product">
+                    <img src="https://img.freepik.com/premium-psd/png-psd-white-earbuds-transparent-background_1049769-62.jpg?w=740" alt="Product 2">
+                    <h3>Eearbud</h3>
+                    <p>Innovative solution for modern businesses.</p>
+                    <div class="product-details">
+                        <button class="btn-add-to-cart">Add to Cart</button>
+                       <a href="#" class="btn-save" onclick="saveForLater(this)"><i class="fas fa-heart"></i></a>
+                    </div>
+                    <div class="cart-message"></div>
+                </div>
+                <div class="product">
+                    <img src="https://time.com/shopping/static/c6b2b213cfd116b85a5eb39102a25009/57e17/best-smartwatches-2.jpg" alt="Product 3">
+                    <h3>Smartwatch</h3>
+                    <p>Reliable and efficient, perfect for your operations.</p>
+                    <div class="product-details">
+                        <button class="btn-add-to-cart">Add to Cart</button>
+                        <a href="#" class="btn-save" onclick="saveForLater(this)"><i class="fas fa-heart"></i></a>
+                    </div>
+                    <div class="cart-message"></div>
+                </div>
+                <div class="product">
+                    <img src="https://i.rtings.com/assets/pages/6S2WXjTl/best-laptop-medium.jpg?format=auto" alt="Product 4">
+                    <h3></h3>
+                    <p>Top-notch performance and quality.</p>
+                    <div class="product-details">
+					    <button class="btn-add-to-cart">Add to Cart</button>
+                        <a href="#" class="btn-save" onclick="saveForLater(this)"><i class="fas fa-heart"></i></a>
+                    </div>
+                    <div class="cart-message"></div>
+                </div>
+				<div class="product">
+                    <img src="keyboard.jpg" alt="Product 5">
+                    <h3>Keyboard</h3>
+                    <p>Top-notch performance and quality.</p>
+                    <div class="product-details">
+					    <button class="btn-add-to-cart">Add to Cart</button>
+                        <a href="#" class="btn-save" onclick="saveForLater(this)"><i class="fas fa-heart"></i></a>
+                    </div>
+                    <div class="cart-message"></div>
+                </div>
+				<div class="product">
+                    <img src="mouse.jpg"alt="Product 6">
+                    <h3>Mouse</h3>
+                    <p>Top-notch performance and quality.</p>
+                    <div class="product-details">
+					    <button class="btn-add-to-cart">Add to Cart</button>
+                        <a href="#" class="btn-save" onclick="saveForLater(this)"><i class="fas fa-heart"></i></a>
+                    </div>
+                    <div class="cart-message"></div>
+                </div>
+				<div class="product">
+                    <img src="headphone.jpg"alt="Product 7">
+                    <h3>Headphone</h3>
+                    <p>Top-notch performance and quality.</p>
+                    <div class="product-details">
+                        <button class="btn-add-to-cart">Add to Cart</button>
+                        <a href="#" class="btn-save" onclick="saveForLater(this)"><i class="fas fa-heart"></i></a>
+                    </div>
+                    <div class="cart-message"></div>
+                </div>
+				<div class="product">
+                    <img src="monitor.jpg"alt="Product 8">
+                    <h3>Monitor</h3>
+                    <p>Top-notch performance and quality.</p>
+                    <div class="product-details">
+                        <button class="btn-add-to-cart">Add to Cart</button>
+                        <a href="#" class="btn-save" onclick="saveForLater(this)"><i class="fas fa-heart"></i></a>
+                    </div>
+                    <div class="cart-message"></div>
+                </div>
+				<div class="product">
+                    <img src="speaker.jpg"alt="Product 9">
+                    <h3>Speaker</h3>
+                    <p>Top-notch performance and quality.</p>
+                    <div class="product-details">
+                        <button class="btn-add-to-cart">Add to Cart</button>
+                        <a href="#" class="btn-save"><i class="fas fa-heart"></i></a>
+                    </div>
+                    <div class="cart-message"></div>
+                </div>
+				<center><p><button onclick="topFunction()" id="topBtn" title="Go to top">Top</button></p></center>
+
+    <script src="script.js"></script>
+	
+            </div>
+        </div>
+    </section>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll to Top Button</title>
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-form">
+                <form>
+                   <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+                <button type="submit">Send Message</button>
+                <button type="reset">Reset</button>
+                </form>
+            </div>
+			<center><p><button onclick="topFunction()" id="topBtn" title="Go to top">Top</button></p></center>
+
+    <script src="script.js"></script>
+        </div>
+    </section>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll to Top Button</title>
+   <section id="map">
+    <div class="container">
+        <h2>Find Us</h2>
+        <h3>📍 Visit us at Aeon Big! 🛍️
+            Find our shop nestled right inside Aeon Big, your go-to destination for all things shopping. Discover our diverse selection of products conveniently located within the bustling atmosphere of Aeon Big. See you there!</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15888.74352662331!2d100.39092195541986!3d5.388617200000019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac5d8f4dd29d9%3A0xee194d9692a2e2c3!2sAeon%20big%20Seberang%20jaya!5e0!3m2!1sen!2smy!4v1715768882409!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+		<center><p><button onclick="topFunction()" id="topBtn" title="Go to top">Top</button></p></center>
+
+    <script src="script.js"></script>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Tech Solutions Inc. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+	
+let topButton = document.getElementById("topBtn");
+
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        topButton.style.display = "block";
+    } else {
+        topButton.style.display = "none";
+    }
+}
+
+function topFunction() {
+    document.body.scrollTop = 0; 
+    document.documentElement.scrollTop = 0;
+}
+
+        const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
+        const saveButtons = document.querySelectorAll('.btn-save');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const cartMessage = button.parentElement.nextElementSibling;
+                cartMessage.textContent = 'Added to cart!';
+                setTimeout(() => cartMessage.textContent = '', 2000);
+            });
+        });
+
+        saveButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const cartMessage = button.parentElement.nextElementSibling;
+                cartMessage.textContent = 'Saved for later!';
+                setTimeout(() => cartMessage.textContent = '', 2000);
+            });
+
+
+        });
+
+    </script>
+</body>
+</html>
